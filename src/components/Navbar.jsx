@@ -5,11 +5,10 @@ import * as AiIcons from 'react-icons/ai';
 import Cart from './Cart';
 import '../css/Navbar.css';
 
-const Navbar = ({ cart }) => {
-  const [sidebar, setSidebar] = useState(false);
-
-  const toggleSideBar = () => setSidebar(!sidebar);
-
+const Navbar = ({ cart, sidebar, toggleSideBar }) => {
+  const handleClick = () => {
+    toggleSideBar();
+  };
   return (
     <div>
       <div className='nav-container'>
@@ -19,7 +18,11 @@ const Navbar = ({ cart }) => {
         </nav>
         <nav>
           <Link to='#'>
-            <FaIcons.FaShoppingBag onClick={toggleSideBar} />
+            <FaIcons.FaShoppingBag
+              onClick={() => {
+                handleClick();
+              }}
+            />
           </Link>
           |{' '}
           <Link to='/profile'>
@@ -27,7 +30,11 @@ const Navbar = ({ cart }) => {
           </Link>
           <nav className={sidebar ? 'cart-container active' : 'cart-container'}>
             <div className='closeCart'>
-              <AiIcons.AiOutlineRight onClick={toggleSideBar} />
+              <AiIcons.AiOutlineRight
+                onClick={() => {
+                  handleClick();
+                }}
+              />
             </div>
             <Cart cart={cart} />
           </nav>

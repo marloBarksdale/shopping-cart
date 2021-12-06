@@ -6,7 +6,7 @@ const Cart = ({ cart }) => {
 
   useEffect(() => {
     setCart(cart);
-  }, [cart]);
+  }, []);
 
   return (
     <>

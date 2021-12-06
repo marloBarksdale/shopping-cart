@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import getData from '../data';
 import { useParams, useNavigate } from 'react-router-dom';
-import { addToCart } from '../data';
 
-const Product = () => {
+const Product = (props) => {
   const [productsData, setProductData] = useState([]);
   let navigate = useNavigate();
   let params = useParams();
@@ -19,8 +18,9 @@ const Product = () => {
     (prod) => prod.id === parseInt(params.id, 10),
   );
 
-  const handleClick = () => {
-    addToCart(filter);
+  const handleClick = (filter) => {
+    props.toggleSideBar();
+    props.addToCart(filter);
   };
 
   return (
@@ -38,7 +38,12 @@ const Product = () => {
             </div>
             <div>${filter.price}</div>
             <p>{filter.description}</p>
-            <button onClick={handleClick} className='btn addToCart'>
+            <button
+              onClick={() => {
+                handleClick(filter);
+              }}
+              className='btn addToCart'
+            >
               {' '}
               Add to Cart
             </button>
