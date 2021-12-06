@@ -1,0 +1,7 @@
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-bottom: solid 1px;
+    padding-bottom: 1rem;
+}

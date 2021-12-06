@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+*, *::after, *::before {
+
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+nav {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 1rem;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 2rem;
+    text-transform: uppercase;
+
+}

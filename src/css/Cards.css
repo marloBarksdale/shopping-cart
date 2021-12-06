@@ -1,0 +1,94 @@
+.card-grid {
+    --padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 200px));
+    padding: var(--padding);
+    gap: 1rem;
+}
+
+.card-grid.product {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: var(--padding);
+    grid-gap: 1rem;
+
+
+
+}
+
+.detailsContainer {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.detailsContainer>* {
+    margin: 1rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
+    height: 300px;
+    border-radius: .25rem;
+    cursor: pointer;
+
+    overflow: hidden;
+
+
+}
+
+.card-image {
+    padding: 0;
+
+}
+
+.card:hover>.card-image>img {
+
+
+    transform: scale(1.1);
+}
+
+
+
+
+
+.card-image>img {
+
+    display: block;
+    width: 95%;
+    aspect-ratio: 16/13;
+    object-fit: contain;
+    max-height: 300px;
+    min-height: 300px;
+    object-position: center;
+    transition: 200ms transform ease-in-out;
+
+}
+
+.card-footer {
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 1rem;
+    /* padding: var(--padding); */
+    padding-top: 0;
+
+
+
+
+}
+
+
+
+.productPrice {
+    font-weight: normal;
+    margin-top: 0.5rem;
+
+}

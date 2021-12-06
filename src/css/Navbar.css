@@ -1,0 +1,23 @@
+.cart-container {
+
+    background-color: aliceblue;
+    width: 400px;
+    z-index: 1000;
+    height: 100vh;
+    /* display: flex; */
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: 850ms;
+    overflow: scroll;
+}
+
+.cart-container.active {
+    right: 0;
+    transition: 250ms;
+}
+
+
+.cart-container>ul {
+    list-style: none;
+}
