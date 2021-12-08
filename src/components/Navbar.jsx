@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
@@ -6,8 +6,8 @@ import Cart from './Cart';
 import '../css/Navbar.css';
 
 const Navbar = ({ cart, sidebar, toggleSideBar }) => {
-  const handleClick = () => {
-    toggleSideBar();
+  const handleClick = (state) => {
+    toggleSideBar(state);
   };
   return (
     <div>
@@ -20,7 +20,7 @@ const Navbar = ({ cart, sidebar, toggleSideBar }) => {
           <Link to='#'>
             <FaIcons.FaShoppingBag
               onClick={() => {
-                handleClick();
+                handleClick(true);
               }}
             />
           </Link>
@@ -29,12 +29,14 @@ const Navbar = ({ cart, sidebar, toggleSideBar }) => {
             <FaIcons.FaUserAlt />
           </Link>
           <nav className={sidebar ? 'cart-container active' : 'cart-container'}>
-            <div className='closeCart'>
-              <AiIcons.AiOutlineRight
-                onClick={() => {
-                  handleClick();
-                }}
-              />
+            <div
+              className='closeCart'
+              style={{ cursor: 'pointer' }}
+              onClick={() => {
+                handleClick(false);
+              }}
+            >
+              <AiIcons.AiOutlineRight />
             </div>
             <Cart cart={cart} />
           </nav>

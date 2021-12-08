@@ -1,11 +1,10 @@
-import { Outlet, Route, Routes } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { getCart } from './data';
+import { Route, Routes } from 'react-router-dom';
+
 import Shop from './components/Shop';
 import Products from './components/Products';
 import Product from './components/Product';
 import Navbar from './components/Navbar';
-import Cart from './components/Cart';
+
 import './css/App.css';
 import { Component } from 'react';
 
@@ -22,7 +21,7 @@ class App extends Component {
     };
   }
 
-  toggleSideBar = () => this.setState({ sidebar: !this.sidebar });
+  toggleSideBar = (state) => this.setState({ sidebar: state });
   addToCart = (item) => {
     this.state.cart.push(item);
   };

@@ -1,14 +1,3 @@
-let cart = [];
-
-export const getCart = () => {
-  return cart;
-};
-
-export const addToCart = (item) => {
-  console.log(cart);
-  cart.push(item);
-};
-
 const data = async () => {
   const fetchProducts = async () => {
     const products = await fetch('https://fakestoreapi.com/products').then(

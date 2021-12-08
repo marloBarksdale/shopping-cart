@@ -1,33 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { getCart } from '../data';
-
+import React from 'react';
+import '../css/Cart.css';
+import { Link, useParams } from 'react-router-dom';
 const Cart = ({ cart }) => {
-  const [cartItem, setCart] = useState([]);
-
-  useEffect(() => {
-    setCart(cart);
-  }, []);
-
+  const params = useParams();
   return (
     <>
-      <h1> My Cart</h1>
-      <div className='card-grid product'>
-        {cartItem.map((filter, index) => (
-          <div key={index}>
-            <div className='card'>
-              <div className='card-image'>
-                <img src={filter.image} alt={filter.title} />
+      <div className='cart-container-box'>
+        <div className='cart-heading'>
+          <h1>My Bag ({cart.length}) </h1>
+        </div>
+        <div className='cart-items'>
+          {cart.map((product, index) => (
+            <div key={index}>
+              <div className='cart-card'>
+                <div className='cart-image'>
+                  <Link
+                    className='cart-link'
+                    to={`/shop/${params.category}/${product.id}/${product.title}`}
+                  >
+                    <img src={product.image} alt={product.title} />
+                  </Link>
+                </div>
+                <div className='detailsContainer'>
+                  <div style={{ fontSize: '13px', fontWeight: '700' }}>
+                    {product.title}
+                  </div>
+                  <div>${product.price}</div>
+                </div>
               </div>
             </div>
-            <div className='detailsContainer'>
-              <div style={{ fontSize: '13px', fontWeight: '700' }}>
-                {filter.title}
-              </div>
-              <div>${filter.price}</div>
-              <p>{filter.description}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );
