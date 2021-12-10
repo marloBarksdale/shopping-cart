@@ -10,12 +10,16 @@ const Navbar = ({ cart, sidebar, toggleSideBar }) => {
     toggleSideBar(state);
   };
   return (
-    <div>
+    <div className='section-header'>
       <div className='nav-container'>
         <nav>
           <Link to='/shop'>Shop</Link> | <Link to='/sale'>Sale</Link> |{' '}
           <Link to='/about'>About</Link>
         </nav>
+        <Link to='/'>
+          {' '}
+          <h1>Hello from App</h1>
+        </Link>
         <nav>
           <Link to='#'>
             <FaIcons.FaShoppingBag
@@ -31,7 +35,7 @@ const Navbar = ({ cart, sidebar, toggleSideBar }) => {
           <nav className={sidebar ? 'cart-container active' : 'cart-container'}>
             <div
               className='closeCart'
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: 'pointer', fontSize: '2rem' }}
               onClick={() => {
                 handleClick(false);
               }}

@@ -1,3 +1,10 @@
+.section-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: aliceblue;
+}
+
 .cart-container {
 
     background-color: aliceblue;
@@ -10,6 +17,7 @@
     right: -100%;
     transition: 850ms;
     overflow: scroll;
+    padding-top: 1rem;
 }
 
 .cart-container.active {
