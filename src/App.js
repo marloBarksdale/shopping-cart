@@ -9,7 +9,6 @@ import Sale from './components/Sale';
 import NoMatch from './components/NoMatch';
 import About from './components/About';
 import Home from './components/Home';
-import Cart from './components/Cart';
 
 import './css/App.css';
 import { Component } from 'react';
@@ -19,9 +18,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      showSearch: false,
       sidebar: false,
-      searchFor: '',
+
       cart: [],
       totalPrice: 0,
       totalCount: 0,
@@ -69,7 +67,17 @@ class App extends Component {
       ),
     });
 
+    this.setState({
+      totalPrice: this.state.cart.reduce(
+        (acc, curVal) => acc + curVal.count * curVal.price,
+        0,
+      ),
+    });
     console.log(this.state.cart);
+
+    this.setState({
+      cart: this.state.cart.filter((element) => element.count > 0),
+    });
   };
 
   render() {
@@ -80,6 +88,8 @@ class App extends Component {
           toggleSideBar={this.toggleSideBar}
           count={this.state.totalCount}
           cart={this.state.cart}
+          total={this.state.totalPrice}
+          addToCart={this.addToCart}
         ></Navbar>
 
         <div className='App-content'>

@@ -2,7 +2,17 @@ import React from 'react';
 import '../css/Cart.css';
 import { Link, useParams } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
-const Cart = ({ cart, count }) => {
+
+var formatter = new Intl.NumberFormat('en-CA', {
+  style: 'currency',
+  currency: 'CAD',
+});
+
+const Cart = ({ cart, count, total, addToCart }) => {
+  const handleClick = (filter, count) => {
+    addToCart(filter, count);
+  };
+
   const params = useParams();
   return (
     <>
@@ -29,15 +39,28 @@ const Cart = ({ cart, count }) => {
                   <div>${product.price}</div>
                   <div>
                     <div style={{ display: 'flex' }}>
-                      <FaIcons.FaRegMinusSquare />
+                      <FaIcons.FaRegMinusSquare
+                        onClick={() => {
+                          handleClick(product, -1);
+                        }}
+                      />
                       <span className='quantity'>{product.count}</span>
-                      <FaIcons.FaRegPlusSquare />
+                      <FaIcons.FaRegPlusSquare
+                        onClick={() => {
+                          handleClick(product, 1);
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className='total-container'>
+          {' '}
+          <h2>Total: {formatter.format(total)}</h2>
         </div>
       </div>
     </>
