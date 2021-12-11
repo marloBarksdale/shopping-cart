@@ -20,7 +20,7 @@ const Product = ({ toggleSideBar, addToCart }) => {
 
   const handleClick = (filter, state) => {
     toggleSideBar(state);
-    addToCart(filter);
+    addToCart(filter, 1);
   };
 
   return (

@@ -23,12 +23,49 @@ class App extends Component {
       searchFor: '',
       cart: [],
       totalPrice: 0,
+      totalCount: 0,
     };
   }
 
   toggleSideBar = (state) => this.setState({ sidebar: state });
-  addToCart = (item) => {
-    this.state.cart.push(item);
+  addToCart = (item, count) => {
+    if (this.state.cart.some((element) => element.id === item.id)) {
+      let updatedItem = this.state.cart.find(
+        (element) => element.id === item.id,
+      );
+      console.log(updatedItem);
+      let oldcount = updatedItem.count;
+      updatedItem.count = oldcount + count;
+
+      let newCart = this.state.cart.filter((element) => element.id !== item.id);
+
+      newCart = [...newCart, updatedItem];
+
+      console.log(newCart);
+
+      this.setState({ cart: newCart });
+    } else {
+      let x = {
+        product: item,
+        title: item.title,
+        price: item.price,
+        id: item.id,
+        image: item.image,
+        count: count,
+        total: item.price * count,
+      };
+
+      this.state.cart.push(x);
+    }
+
+    this.setState({
+      totalCount: this.state.cart.reduce(
+        (acc, curVal) => acc + curVal.count,
+        0,
+      ),
+    });
+
+    console.log(this.state.cart);
   };
 
   render() {
@@ -38,6 +75,7 @@ class App extends Component {
           cart={this.state.cart}
           sidebar={this.state.sidebar}
           toggleSideBar={this.toggleSideBar}
+          count={this.state.totalCount}
         ></Navbar>
 
         <div className='App-content'>

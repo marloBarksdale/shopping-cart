@@ -5,7 +5,7 @@ import * as AiIcons from 'react-icons/ai';
 import Cart from './Cart';
 import '../css/Navbar.css';
 
-const Navbar = ({ cart, sidebar, toggleSideBar }) => {
+const Navbar = ({ cart, sidebar, toggleSideBar, count }) => {
   const handleClick = (state) => {
     toggleSideBar(state);
   };
@@ -42,7 +42,7 @@ const Navbar = ({ cart, sidebar, toggleSideBar }) => {
             >
               <AiIcons.AiOutlineRight />
             </div>
-            <Cart cart={cart} />
+            <Cart cart={cart} count={count} />
           </nav>
         </nav>
       </div>

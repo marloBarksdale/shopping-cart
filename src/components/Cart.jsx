@@ -1,13 +1,13 @@
 import React from 'react';
 import '../css/Cart.css';
 import { Link, useParams } from 'react-router-dom';
-const Cart = ({ cart }) => {
+const Cart = ({ cart, count }) => {
   const params = useParams();
   return (
     <>
       <div className='cart-container-box'>
         <div className='cart-heading'>
-          <h1>My Bag ({cart.length}) </h1>
+          <h1>My Bag ({count}) </h1>
         </div>
         <div className='cart-items'>
           {cart.map((product, index) => (
