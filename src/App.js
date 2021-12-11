@@ -9,6 +9,7 @@ import Sale from './components/Sale';
 import NoMatch from './components/NoMatch';
 import About from './components/About';
 import Home from './components/Home';
+import Cart from './components/Cart';
 
 import './css/App.css';
 import { Component } from 'react';
@@ -33,17 +34,20 @@ class App extends Component {
       let updatedItem = this.state.cart.find(
         (element) => element.id === item.id,
       );
+
+      // let index = this.state.cart.findIndex((element)=>element.id === item.it);
+
       console.log(updatedItem);
-      let oldcount = updatedItem.count;
-      updatedItem.count = oldcount + count;
 
-      let newCart = this.state.cart.filter((element) => element.id !== item.id);
+      updatedItem.count = updatedItem.count + count;
 
-      newCart = [...newCart, updatedItem];
+      // let newCart = this.state.cart.filter((element) => element.id !== item.id);
 
-      console.log(newCart);
+      // newCart = [...newCart, updatedItem];
 
-      this.setState({ cart: newCart });
+      // console.log(newCart);
+
+      this.setState({ cart: this.state.cart });
     } else {
       let x = {
         product: item,
@@ -72,10 +76,10 @@ class App extends Component {
     return (
       <div className='App'>
         <Navbar
-          cart={this.state.cart}
           sidebar={this.state.sidebar}
           toggleSideBar={this.toggleSideBar}
           count={this.state.totalCount}
+          cart={this.state.cart}
         ></Navbar>
 
         <div className='App-content'>

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/Cart.css';
 import { Link, useParams } from 'react-router-dom';
+import * as FaIcons from 'react-icons/fa';
 const Cart = ({ cart, count }) => {
   const params = useParams();
   return (
@@ -26,6 +27,13 @@ const Cart = ({ cart, count }) => {
                     {product.title}
                   </div>
                   <div>${product.price}</div>
+                  <div>
+                    <div style={{ display: 'flex' }}>
+                      <FaIcons.FaRegMinusSquare />
+                      <span className='quantity'>{product.count}</span>
+                      <FaIcons.FaRegPlusSquare />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
