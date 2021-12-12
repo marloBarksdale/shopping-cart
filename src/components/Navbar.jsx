@@ -45,7 +45,7 @@ const Navbar = ({
             </Link>{' '}
             | <Link to='/sale'>Sale</Link> | <Link to='/about'>About</Link>
           </nav>
-          <Link to='/'>
+          <Link to='/shopping-cart'>
             {' '}
             <h1>
               ILove <FaIcons.FaHeartBroken style={{ color: 'red' }} /> Fake
