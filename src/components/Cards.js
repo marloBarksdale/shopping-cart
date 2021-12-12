@@ -13,7 +13,7 @@ const Cards = ({ products }) => {
     <>
       {products.map((product) => (
         <Link
-          to={`shopping-cart/shop/${params.category}/${product.id}/${product.title}`}
+          to={`/shop/${params.category}/${product.id}/${product.title}`}
           key={product.id}
         >
           <div className='card-container'>
