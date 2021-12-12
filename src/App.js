@@ -114,6 +114,7 @@ class App extends Component {
             <Route path='profile' element={<Profile />} />
             <Route path='about' element={<About />} />
             <Route path='*' element={<NoMatch />} />
+            <Route />
           </Routes>
         </div>
       </div>

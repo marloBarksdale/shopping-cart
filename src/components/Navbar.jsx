@@ -119,7 +119,7 @@ const Navbar = ({
                   handleHover('categories');
                 }}
                 key={index}
-                to={`/shop/${category}`}
+                to={`shop/${category}`}
               >
                 {category}
               </Link>
