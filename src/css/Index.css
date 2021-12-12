@@ -22,7 +22,14 @@ nav {
 
 a {
     text-decoration: none;
+
 }
+
+a:visited {
+    color: black;
+}
+
+
 
 .btn {
     width: 100%;

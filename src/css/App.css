@@ -1,9 +1,10 @@
 .nav-container {
     display: flex;
     justify-content: space-between;
-    padding: 0 1rem;
+    padding: 1rem 1rem;
     border-bottom: solid 1px;
     padding-bottom: 1rem;
+    align-items: center;
 }
 
 .App {

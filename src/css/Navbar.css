@@ -18,6 +18,7 @@
     transition: 850ms;
     overflow: scroll;
     padding-top: 1rem;
+    padding-left: 1rem;
 }
 
 .cart-container.active {
