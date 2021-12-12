@@ -33,7 +33,7 @@ const Navbar = ({
           <nav>
             <Link
               id='shopLink'
-              to='/shop'
+              to='#'
               onMouseEnter={() => {
                 handleHover('categories active');
               }}
