@@ -10,6 +10,16 @@ const data = async () => {
   products = await fetchProducts();
 };
 
+const categories = [];
+export const getCategories = () => {
+  products.forEach((product) => {
+    if (!categories.includes(product.category)) {
+      categories.push(product.category);
+    }
+  });
+  return categories;
+};
+
 const getData = async () => {
   if (products.length === 0) {
     await data();

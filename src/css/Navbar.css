@@ -1,8 +1,26 @@
 .section-header {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background-color: aliceblue;
+    position: relative;
+
+    background-color: white;
+}
+
+.categories {
+
+    position: absolute;
+    width: 100%;
+    top: 0%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: white;
+    height: auto;
+    left: 0;
+    right: 0;
+    z-index: -6;
+}
+
+.categories.active {
+    border-top: 1px solid;
+    top: 100%
 }
 
 .cart-container {
@@ -19,6 +37,7 @@
     overflow: scroll;
     padding-top: 1rem;
     padding-left: 1rem;
+    overflow-x: hidden;
 }
 
 .cart-container.active {

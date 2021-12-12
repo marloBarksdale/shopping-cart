@@ -5,6 +5,7 @@
     border-bottom: solid 1px;
     padding-bottom: 1rem;
     align-items: center;
+    position: relative;
 }
 
 .App {
@@ -21,20 +22,26 @@
     flex: 1 1 0%;
 }
 
-.banner>img {}
-
 .banner {
-    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/0UECcInuCR4");
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* align-items: center; */
+    /* justify-content: center; */
+}
 
-    /* Set a specific height */
-    height: 100vh;
-    ;
+.hero-1 {
+    margin-bottom: 2rem 0;
+}
 
-    /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+.hero-image>img {
+    width: 100%;
+    height: auto;
 
+    display: block;
+
+
+
+
+    object-position: center;
+    transition: 200ms transform ease-in-out;
 }

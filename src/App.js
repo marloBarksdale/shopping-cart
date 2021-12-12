@@ -19,13 +19,14 @@ class App extends Component {
 
     this.state = {
       sidebar: false,
-
+      categories: false,
       cart: [],
       totalPrice: 0,
       totalCount: 0,
     };
   }
-
+  toggleCategories = () =>
+    this.setState({ categories: !this.state.categories });
   toggleSideBar = (state) => this.setState({ sidebar: state });
   addToCart = (item, count) => {
     if (this.state.cart.some((element) => element.id === item.id)) {
@@ -96,6 +97,7 @@ class App extends Component {
           <Routes>
             <Route element={<Home />} index />
             <Route path='shop' element={<Shop />}>
+              <Route element={<Home />} index />
               <Route
                 path=':category/:id/:product'
                 element={
