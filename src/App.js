@@ -95,7 +95,7 @@ class App extends Component {
 
         <div className='App-content'>
           <Routes>
-            <Route path='/' element={<Home />} index />
+            <Route path='/shopping-cart' element={<Home />} index />
             <Route path='shop' element={<Shop />}>
               <Route element={<Home />} index />
               <Route
